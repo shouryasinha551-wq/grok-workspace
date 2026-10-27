@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "./simulator/lab.css";
+
+@theme {
+  --font-sans: "Outfit", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-void: #07080c;
+  --color-ink: #e7e2d6;
+  --color-mist: #9a958a;
+  --color-panel: #12141b;
+  --color-line: #2c2e38;
+  --color-brass: #e2a15a;
+  --radius-lg: 1rem;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    background: var(--color-void);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

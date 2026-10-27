@@ -1,0 +1,360 @@
+:root {
+  --ky-void: #07080c;
+  --ky-ink: #e7e2d6;
+  --ky-mist: #9a958a;
+  --ky-panel: #12141b;
+  --ky-line: #2c2e38;
+  --ky-brass: #e2a15a;
+  --ky-sans: "Outfit", "Segoe UI", sans-serif;
+  --ky-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --ky-radius: 16px;
+}
+
+.ky-host {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--ky-void);
+  color: var(--ky-ink);
+  font-family: var(--ky-sans);
+  user-select: none;
+}
+
+.ky-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.ky-top,
+.ky-dock,
+.ky-dev,
+.ky-float {
+  pointer-events: auto;
+}
+
+.ky-top {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "brand readout"
+    "presets presets";
+  gap: 8px 18px;
+  padding: 12px 14px 10px;
+  background: color-mix(in srgb, var(--ky-panel) 88%, transparent);
+  border: 1px solid var(--ky-line);
+  border-radius: var(--ky-radius);
+  backdrop-filter: blur(12px);
+}
+
+.ky-brand {
+  grid-area: brand;
+  min-width: 0;
+}
+
+.ky-kicker {
+  margin: 0;
+  color: var(--ky-brass);
+  font-family: var(--ky-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ky-brand h1 {
+  margin: 2px 0 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.ky-hint {
+  margin: 4px 0 0;
+  color: var(--ky-mist);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.ky-readout {
+  grid-area: readout;
+  align-self: start;
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  color: var(--ky-mist);
+  font-family: var(--ky-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ky-readout strong {
+  color: var(--ky-ink);
+  font-weight: 500;
+}
+
+.ky-presets {
+  grid-area: presets;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.ky-presets::-webkit-scrollbar {
+  display: none;
+}
+
+.ky-chip,
+.ky-btn,
+.ky-dev {
+  font-family: var(--ky-sans);
+}
+
+.ky-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 12px 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--ky-line);
+  background: transparent;
+  color: var(--ky-ink);
+  font-size: 13px;
+  font-weight: 500;
+  flex: 0 0 auto;
+}
+
+.ky-chip:hover,
+.ky-btn:hover {
+  border-color: color-mix(in srgb, var(--ky-brass) 70%, var(--ky-line));
+}
+
+.ky-chip.is-on {
+  border-color: var(--ky-brass);
+  background: color-mix(in srgb, var(--ky-brass) 16%, transparent);
+  color: var(--ky-ink);
+}
+
+.ky-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ky-ink) 25%, transparent);
+  flex: 0 0 auto;
+}
+
+.ky-chip small {
+  color: var(--ky-mist);
+  font-family: var(--ky-mono);
+  font-size: 10px;
+}
+
+.ky-chip.is-on small {
+  color: var(--ky-brass);
+}
+
+.ky-dock {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  right: 188px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: color-mix(in srgb, var(--ky-panel) 88%, transparent);
+  border: 1px solid var(--ky-line);
+  border-radius: var(--ky-radius);
+  backdrop-filter: blur(12px);
+}
+
+.ky-btn {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--ky-line);
+  background: transparent;
+  color: var(--ky-ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ky-btn.is-on {
+  background: var(--ky-brass);
+  border-color: var(--ky-brass);
+  color: var(--ky-void);
+}
+
+.ky-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 4px 0 10px;
+  color: var(--ky-mist);
+  font-family: var(--ky-mono);
+  font-size: 12px;
+}
+
+.ky-time input {
+  width: 108px;
+  accent-color: var(--ky-brass);
+  cursor: pointer;
+}
+
+.ky-time b {
+  min-width: 42px;
+  color: var(--ky-ink);
+  font-weight: 500;
+}
+
+.ky-dev {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--ky-brass) 65%, var(--ky-line));
+  background: color-mix(in srgb, var(--ky-panel) 92%, transparent);
+  color: var(--ky-brass);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+}
+
+.ky-dev:hover {
+  background: var(--ky-brass);
+  color: var(--ky-void);
+}
+
+.ky-empty {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  margin: 0;
+  max-width: min(420px, calc(100% - 48px));
+  text-align: center;
+  color: var(--ky-mist);
+  font-size: 15px;
+  line-height: 1.45;
+  pointer-events: none;
+}
+
+.ky-empty[hidden] {
+  display: none;
+}
+
+.ky-float {
+  position: absolute;
+  z-index: 2;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ky-panel) 90%, transparent);
+  border: 1px solid var(--ky-line);
+  color: var(--ky-ink);
+  font-family: var(--ky-mono);
+  font-size: 11px;
+  pointer-events: none;
+  transform: translate(12px, 14px);
+}
+
+.ky-float[hidden] {
+  display: none;
+}
+
+.ky-boot {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: var(--ky-mist);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.ky-chip:focus-visible,
+.ky-btn:focus-visible,
+.ky-dev:focus-visible,
+.ky-time input:focus-visible {
+  outline: 2px solid var(--ky-brass);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .ky-top {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "readout"
+      "presets";
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    padding: 10px;
+  }
+
+  .ky-brand h1 {
+    font-size: 20px;
+  }
+
+  .ky-hint {
+    font-size: 12px;
+  }
+
+  .ky-dock {
+    left: 8px;
+    right: 8px;
+    bottom: 68px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ky-dock::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ky-dev {
+    right: 8px;
+    bottom: 8px;
+    left: auto;
+  }
+
+  .ky-time input {
+    width: 84px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ky-chip,
+  .ky-btn,
+  .ky-dev {
+    transition: none;
+  }
+}

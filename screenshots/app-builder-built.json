@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Kepler Yard",
+      "hasCanvas": true,
+      "bodyTextLen": 262,
+      "bodyTextHash": "12ced14b7c89b0b138e13a91eed4a89b1548e3e14b7947898828d3c22a460d3f",
+      "bodyTextPrefix": "N-BODY SANDBOX Kepler Yard Drag the sky to spawn. Drag a body to",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Kepler Yard",
+      "hasCanvas": true,
+      "bodyTextLen": 262,
+      "bodyTextHash": "12ced14b7c89b0b138e13a91eed4a89b1548e3e14b7947898828d3c22a460d3f",
+      "bodyTextPrefix": "N-BODY SANDBOX Kepler Yard Drag the sky to spawn. Drag a body to",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
